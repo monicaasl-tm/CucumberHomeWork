@@ -7,24 +7,28 @@ import io.cucumber.java.en.When;
 
 public class StepsDefinitions {
 	
-	//1
+
 	@Given("User is in login page")
 	public void user_is_in_login_page() {
 	    System.out.println("Login page");
 	}
 	
-	@When("User send an email")
-	public void User_send_an_email() {
-		System.out.println("Email: ");
-		System.out.println("test1@example.com: ");
-		
+	@When("User send an email {string}")
+	public void user_send_an_email(String string) {
+		System.out.println("User: " + string);
 	}
 	
-	@When("User send a password")
-	public void User_send_a_password() {
-		System.out.println("Password: ");
-		System.out.println("myPassword ");
+	@Given("^.*logged in as \"(\\w+)\"$")
+	public void user_is_logged_in(String user) {
+		System.out.println("Welcome " + user);
+	}
 
+	@When("User send a password {string}")
+	public void user_send_a_password(String string) {
+		System.out.println("Pasword: " + string);
+		if (string.equals("Hdbjvf! ")) {
+			System.out.println("Invalid pasword");
+		}
 	}
 	
 	@When("User click on log in sign in button")
@@ -38,15 +42,15 @@ public class StepsDefinitions {
 	}
 	
 	
-	
-	//2
+
 	@Then("User should be in default page")
 	public void User_should_be_in_default_page() {
 		System.out.println("Welcome");
 	}
 	
 	
-	//3
+
+	
 	@Then("User should be in news page with access to all news")
 	public void user_should_be_in_news_page_with_access_to_all_news() {
 		System.out.println("All news premium ");
@@ -55,7 +59,7 @@ public class StepsDefinitions {
 	}
 
 
-	//4
+
 	@Then("User should be in news page with limited access to local news")
 	public void user_should_be_in_news_page_with_limited_access_to_local_news() {
 		System.out.println("News free");
@@ -70,7 +74,7 @@ public class StepsDefinitions {
 	}
 
 
-	//5
+
 	@Given("User is in articles page")
 	public void user_is_in_articles_page() {
 		System.out.println("Articles");
@@ -87,21 +91,21 @@ public class StepsDefinitions {
 	}
 	
 	
-	//6
+
 	@Then("User should see the entire article with at least five adds")
 	public void user_should_see_the_entire_article_with_at_least_five_adds() {
 		System.out.println("Full article with adds! :(");
 	}
 	
 	
-	//7
+
 	@Then("User should see access denied")
 	public void user_should_see_access_denied() {
 		System.out.println("Access denied");
 		System.out.println("Please register");
 	}
 	
-	//8
+
 	@Given("User is membership page")
 	public void user_is_membership_page() {
 		System.out.println("Memberships");
